@@ -1,12 +1,9 @@
 package com.kisro.juc.lock;
 
 import java.util.concurrent.locks.ReentrantLock;
-
-/**
- * 使用ReentrantLock可重入锁来实现锁定票数
- */
-class Ticket2 {
-    private final ReentrantLock lock = new ReentrantLock();
+class Ticket3{
+    //true则为公平锁，false为非公平锁
+    private final ReentrantLock lock = new ReentrantLock(false);
     private int nums = 30;
     void sale(){
         //上锁
@@ -22,17 +19,17 @@ class Ticket2 {
         }
     }
 }
-public class LockSaleTicket {
+public class FairLock {
     public static void main(String[] args) {
-        Ticket2 ticket2 = new Ticket2();
+        Ticket3 ticket3 = new Ticket3();
         new Thread(()-> {
             for (int i = 0; i < 30; i++) {
-                ticket2.sale();
+                ticket3.sale();
             }
         },"aa").start();
         new Thread(()-> {
             for (int i = 0; i <30; i++) {
-                ticket2.sale();
+                ticket3.sale();
             }
         },"bb").start();
     }
