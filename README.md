@@ -7,4 +7,4 @@
 > Lock和synchronized区别：采用synchronized不需要用户手动释放锁，而Lock必须要用户释放锁，否则可能会造成死锁现象
 > Lock不是Java内置，而synchronized是Java语言的关键字。
 
-![image](public/assets/Lock.png) 
+![image](assets/Lock.png) 
