@@ -1,4 +1,4 @@
-package com.kisro.juc;
+package com.kisro.juc.sync;
 
 
 class Ticket {
